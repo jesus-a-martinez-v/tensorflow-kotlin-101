@@ -5,7 +5,6 @@ import org.tensorflow.TensorFlow
 
 fun main(args: Array<String>) {
     try {
-        val graph = Graph()
         val message = "Hello from ${TensorFlow.version()}"
 
         // Creates a tensor with the given content.
@@ -13,6 +12,7 @@ fun main(args: Array<String>) {
         // TensorFlow for Java doesn't support convenient methods for the different types of operations,
         // so we must provide the operation name, along with a reference name. We also need to set attributes
         // using strings, as seen in the usage of the setAttr() method.
+        val graph = Graph()
         graph.opBuilder("Const", "MyConst")
                 .setAttr("dtype", tensor.dataType())
                 .setAttr("value", tensor)
